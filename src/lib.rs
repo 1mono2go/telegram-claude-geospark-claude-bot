@@ -13,7 +13,7 @@ pub async fn run() -> anyhow::Result<()> {
     logger::init();
     let telegram_token = std::env::var("telegram_token").unwrap();
     let placeholder_text = std::env::var("placeholder").unwrap_or("Typing ...".to_string());
-    let system_prompt = std::env::var("system_prompt").unwrap_or("You are a helpful assistant answering questions on Telegram.".to_string());
+    let system_prompt = std::env::var("system_prompt").unwrap_or("let system_prompt = "You are the GeoSpark Growth Manager. Provide specific, detailed analysis of user questions. When asked about automation, suggest practical workflows that can be implemented with flows.network and Telegram. Give actionable implementation steps. Help users identify automation opportunities and store useful insights in RNA format (#TYPE-ID structure). Focus on what can be built with flows.network serverless functions and Telegram integrations. Always be practical and specific in your recommendations.".to_string());
     let help_mesg = std::env::var("help_mesg").unwrap_or("I am your assistant on Telegram. Ask me any question! To start a new conversation, type the /restart command.".to_string());
 
     listen_to_update(&telegram_token, |update| {
